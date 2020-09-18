@@ -5,8 +5,7 @@ pipeline {
 		stage ('makefile') {
 			agent { label 'slaveforc' }
 			steps { 
-				git
-				'https://github.com/manu289/jenkins_pipeline.git'
+				git 'https://github.com/manu289/jenkins_pipeline.git'
 		                 sh 'make'
 				//*echo 'This is slaveforc node with STAGE 1'
 				//sh 'sleep 10'
@@ -15,8 +14,7 @@ pipeline {
 		stage ('maven') {
 			agent { label 'slaveforjava' }
 			steps { 
-				git
-				'https://github.com/manu289/jenkins_pipeline.git'
+				git 'https://github.com/manu289/jenkins_pipeline.git'
 		                 sh 'mvn clean install'
 				//*echo 'This is slaveforc node with STAGE 1'
 				//sh 'sleep 10'
