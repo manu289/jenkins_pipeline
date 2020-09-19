@@ -1,10 +1,11 @@
 pipeline {
-	agent {label 'master'}
+	agent none
  
 	stages {
 		stage ('Make and Maven') {
 			parallel {
 				stage ('makefile') {
+					agent {label 'slaveforc'}
 					steps { 
 						echo 'This is makefile example'
 						sh '''
@@ -19,6 +20,7 @@ pipeline {
 					}	
 				}
 				stage ('maven') {
+					agent {label 'slaveforjava'}
 					steps {
 						echo 'This is maven example'
 						sh '''
