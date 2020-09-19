@@ -20,14 +20,14 @@ pipeline {
 				}
 				stage ('maven') {
 					steps {
-						echo 'This is slaveforc node with STAGE 1'
+						echo 'This is maven example'
 						sh '''
-							if [[ -d "./mainrepo" ]]; then 
-								cd "./mainrepo" && git pull
+							if [[ -d "./hello-world" ]]; then 
+								cd "./hello-world" && git pull
 								mvn clean install 
 							else 
 								git clone https://github.com/manu289/hello-world.git
-								cd "./mainrepo" && mvn clean install
+								cd "./hello-world" && mvn clean install
 							fi
 						'''
 					}	
